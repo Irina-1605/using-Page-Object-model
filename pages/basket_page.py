@@ -1,17 +1,28 @@
 from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
 from .locators import BasePageLocators
+from .locators import BasketPageLocators
 from pages.base_page import BasePage
 import time
 
 
-class ProductPage(BasePage):
+class BasketPage(BasePage):
  
     def add_product_to_basket(self):
         time.sleep(5)
         button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
         button.click()
-            
+
+    def should_not_be_items_in_basket(self):
+        time.sleep(5)
+        assert self.is_not_element_present(*BasketPageLocators.ITEMS_IN_BASKET), \
+            "Items are presented, but should not be"
+
+    def should_be_message_basket_is_empty(self):
+        time.sleep(5)
+        assert self.is_element_present(*BasketPageLocators.BASKET_IS_EMPTY_MESSAGE), \
+            "Basket is not empty, but should be"
+
     def should_be_matched_book_name(self):
         book_name_text_elt = self.browser.find_element(*ProductPageLocators.BOOK_NAME)
         book_name = book_name_text_elt.text
@@ -39,8 +50,3 @@ class ProductPage(BasePage):
             "Success message is not disappeared, but should be"
 
               
-
-    
-           
-
-    
