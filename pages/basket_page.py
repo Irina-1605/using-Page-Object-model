@@ -49,4 +49,6 @@ class BasketPage(BasePage):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is not disappeared, but should be"
 
+
+
               
