@@ -20,6 +20,8 @@ class BasketPageLocators():
     BASKET_IS_EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner>p")
 
 class LoginPageLocators():
+    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")    
     EMAIL = (By.CSS_SELECTOR, "[name='registration-email']")
     PASSWORD = (By.CSS_SELECTOR, "[name='registration-password1']")	
     CONFIRM_PASSWORD = (By.CSS_SELECTOR, "[name='registration-password2']")		
